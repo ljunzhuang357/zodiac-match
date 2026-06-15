@@ -1,6 +1,7 @@
 export interface BlogSection {
   heading: string;
   paragraphs: string[];
+  faq?: { question: string; answer: string }[];
 }
 
 export interface BlogPost {
