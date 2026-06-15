@@ -14,6 +14,43 @@ export interface BlogPost {
   faq?: { question: string; answer: string }[];
 }
 
+const STOP_WORDS = new Set([
+  "a","an","the","and","or","but","in","on","at","to","for","of","with","by",
+  "is","are","was","were","be","been","being","have","has","had","do","does",
+  "did","it","its","that","this","these","those","what","which","who","whom",
+  "i","you","he","she","we","they","me","him","her","us","them","my","your",
+  "his","its","our","their","not","no","nor","so","if","as","from","about",
+  "into","over","all","each","every","some","any","very","just","can","will",
+  "why","how","when","where","more","also","than","then","now","here","there",
+]);
+
+function getKeywords(title: string): string[] {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .split(/[\s-]+/)
+    .filter((w) => w.length > 2 && !STOP_WORDS.has(w));
+}
+
+export function getRelatedPosts(currentSlug: string, max: number = 4): BlogPost[] {
+  const current = blogPosts.find((p) => p.slug === currentSlug);
+  if (!current) return [];
+
+  const currentKeywords = getKeywords(current.title);
+
+  const scored = blogPosts
+    .filter((p) => p.slug !== currentSlug)
+    .map((post) => {
+      const postKeywords = getKeywords(post.title);
+      const overlap = currentKeywords.filter((kw) => postKeywords.includes(kw)).length;
+      return { post, score: overlap };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, max);
+
+  return scored.filter((s) => s.score > 0).map((s) => s.post);
+}
+
 export const blogPosts: BlogPost[] = [
   {
     slug: "chinese-zodiac-compatibility-complete-guide",

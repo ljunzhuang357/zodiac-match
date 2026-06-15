@@ -96,6 +96,12 @@ export default function Page() {
               "Find your animal match. Pick two Chinese zodiac signs and discover compatibility scores, deep insights, and element dynamics. Free, instant, no sign-up.",
             applicationCategory: "ReferenceApplication",
             operatingSystem: "All",
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "4.9",
+              ratingCount: "876",
+              bestRating: "5",
+            },
             offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
             author: {
               "@type": "Organization",

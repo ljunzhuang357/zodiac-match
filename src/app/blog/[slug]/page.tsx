@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { blogPosts } from "@/data/blog";
+import { blogPosts, getRelatedPosts } from "@/data/blog";
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -106,7 +106,40 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             ))}
           </div>
 
-          <div className="mt-16 pt-8 border-t" style={{ borderColor: "var(--color-border)" }}>
+          {/* Related posts */}
+          {(() => {
+            const related = getRelatedPosts(post.slug);
+            if (related.length === 0) return null;
+            return (
+              <div className="mt-12 pt-8 border-t" style={{ borderColor: "var(--color-border)" }}>
+                <h3 className="text-sm font-semibold uppercase tracking-wider mb-4" style={{ color: "var(--color-fg-tertiary)" }}>
+                  Related Articles
+                </h3>
+                <div className="flex flex-col gap-3">
+                  {related.map((r) => (
+                    <Link
+                      key={r.slug}
+                      href={`/blog/${r.slug}`}
+                      className="block p-4 rounded-lg transition-all hover:-translate-y-0.5"
+                      style={{
+                        background: "var(--color-surface)",
+                        border: "1px solid var(--color-border)",
+                      }}
+                    >
+                      <span className="text-sm font-medium leading-snug block">
+                        {r.title}
+                      </span>
+                      <span className="text-xs mt-1 block" style={{ color: "var(--color-fg-tertiary)" }}>
+                        {r.description.slice(0, 100)}…
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
+
+          <div className="mt-8 pt-6 border-t" style={{ borderColor: "var(--color-border)" }}>
             <Link
               href="/"
               className="inline-flex items-center gap-2 font-medium text-sm"
