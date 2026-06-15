@@ -83,7 +83,29 @@ export default function Page() {
   const gaugeOffset = result ? R - (result.score / 100) * R : R;
 
   return (
-    <div className="max-w-[1040px] mx-auto px-6">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "ZodiacMatch — Chinese Zodiac Compatibility",
+            url: "https://zodiacmatch.xyz",
+            description:
+              "Find your animal match. Pick two Chinese zodiac signs and discover compatibility scores, deep insights, and element dynamics. Free, instant, no sign-up.",
+            applicationCategory: "ReferenceApplication",
+            operatingSystem: "All",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+            author: {
+              "@type": "Organization",
+              name: "ZodiacMatch",
+              url: "https://zodiacmatch.xyz",
+            },
+          }),
+        }}
+      />
+      <div className="max-w-[1040px] mx-auto px-6">
       {/* Nav */}
       <nav className="flex items-center justify-between py-5 border-b border-[#eeebe5] mb-12">
         <div className="text-base font-bold tracking-tight flex items-center gap-2.5">
@@ -398,5 +420,6 @@ export default function Page() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

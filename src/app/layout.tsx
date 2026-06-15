@@ -1,9 +1,27 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const SITE = "https://zodiacmatch.xyz";
+
 export const metadata: Metadata = {
   title: "ZodiacMatch — Chinese Zodiac Compatibility",
   description: "Find your animal match. Pick two Chinese zodiac signs and discover compatibility scores, deep insights, and element dynamics. Free, instant, no sign-up.",
+  metadataBase: new URL(SITE),
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "ZodiacMatch — Chinese Zodiac Compatibility",
+    description: "Find your animal match. Pick two Chinese zodiac signs and discover compatibility scores, deep insights, and element dynamics. Free, instant, no sign-up.",
+    url: SITE,
+    siteName: "ZodiacMatch",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ZodiacMatch — Chinese Zodiac Compatibility",
+    description: "Find your animal match. Pick two Chinese zodiac signs and discover compatibility scores, deep insights, and element dynamics.",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

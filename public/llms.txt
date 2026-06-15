@@ -1,0 +1,12 @@
+# ZodiacMatch — Chinese Zodiac Compatibility Tool
+> https://zodiacmatch.xyz
+
+ZodiacMatch is a free online tool that calculates Chinese zodiac compatibility between any two of the 12 animal signs. Users pick two animals and get an instant compatibility score (0-100%), a short description of the pairing, a deep analysis paragraph, and an element-relationship reading (Wood/Fire/Earth/Metal/Water).
+
+## Core pages
+
+- [Home page](https://zodiacmatch.xyz): interactive compatibility calculator + full animal listings + top/bottom 5 pairings + how it works + FAQ
+
+## Data
+
+The tool covers 12 Chinese zodiac animals (Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig) and all 66 unique pairings. Each pairing has a score, label, description, deep analysis, and element interaction. The five elements (Wood, Fire, Earth, Metal, Water) cycle annually and modify compatibility.
