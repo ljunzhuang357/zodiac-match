@@ -6,10 +6,16 @@ ZodiacMatch is a free online tool that calculates Chinese zodiac compatibility b
 ## Core pages
 
 - [Home page](https://zodiacmatch.xyz): interactive compatibility tool + all 12 animal profiles + pairing scores + FAQ
+- [Blog](https://zodiacmatch.xyz/blog): in-depth guides to Chinese zodiac compatibility
 
 ## Blog
 
 - [Chinese Zodiac Compatibility: The Complete Guide to Love Match](https://zodiacmatch.xyz/blog/chinese-zodiac-compatibility-complete-guide): pillar guide covering how compatibility works, all 12 animals, best and worst matches, five elements, and FAQ
+- [Rat and Dragon Compatibility](https://zodiacmatch.xyz/blog/rat-and-dragon-compatibility): why Rat+Dragon is the most powerful zodiac pairing, in love and business
+- [Tiger and Horse Compatibility](https://zodiacmatch.xyz/blog/tiger-and-horse-compatibility): the passionate, freedom-loving Tiger and Horse match
+- [The 5 Most Compatible Chinese Zodiac Signs Ranked](https://zodiacmatch.xyz/blog/most-compatible-chinese-zodiac-signs): top 5 love matches with scores and detailed analysis
+- [Chinese Zodiac Elements Compatibility](https://zodiacmatch.xyz/blog/chinese-zodiac-elements-compatibility): how Wood, Fire, Earth, Metal, and Water affect your love match
+- [Dragon and Monkey Compatibility](https://zodiacmatch.xyz/blog/dragon-and-monkey-compatibility): the Three Harmony match between witty Monkey and charismatic Dragon
 
 ## Data
 

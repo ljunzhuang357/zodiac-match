@@ -122,6 +122,13 @@ export default function Page() {
               {label}
             </a>
           ))}
+            <a href="/blog"
+               className="text-xs text-[#8a847c] no-underline cursor-pointer px-2.5 py-1.5 rounded-md relative
+                          after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:h-[1.5px] after:bg-[#c0392b] after:rounded-sm
+                          after:transition-[left,right] after:duration-[0.35s] after:ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-[#1a1816]
+                          hover:after:left-[20%] hover:after:right-[20%]">
+              Blog
+            </a>
         </div>
       </nav>
 
@@ -416,7 +423,10 @@ export default function Page() {
       <footer className="border-t border-[#eeebe5] py-9 pb-6">
         <div className="flex items-center justify-between flex-wrap gap-3">
           <span className="text-xs text-[#8a847c]">✰ Zodiac<em className="not-italic text-[#c0392b]">Match</em> — Chinese Zodiac Compatibility Tool</span>
-          <a href="#" className="text-xs text-[#8a847c] no-underline hover:text-[#1a1816]">Privacy</a>
+          <div className="flex gap-4">
+            <a href="/blog" className="text-xs text-[#8a847c] no-underline hover:text-[#1a1816]">Blog</a>
+            <a href="#" className="text-xs text-[#8a847c] no-underline hover:text-[#1a1816]">Privacy</a>
+          </div>
         </div>
       </footer>
     </div>
