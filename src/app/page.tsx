@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import { animals, NAMES, authoritativeScore, genDeep, genElem, getScore, getAllPairings } from "@/data/zodiac";
 
 const R = 314.16; // circumference
@@ -114,9 +115,9 @@ export default function Page() {
       <div className="max-w-[1040px] mx-auto px-6">
       {/* Nav */}
       <nav className="flex items-center justify-between py-5 border-b border-[#eeebe5] mb-12">
-        <div className="text-base font-bold tracking-tight flex items-center gap-2.5">
-          <span className="inline-flex items-center justify-center w-7 h-7 bg-[#1a1816] text-white rounded-lg text-sm">✰</span>
-          Zodiac<em className="not-italic text-[#c0392b]">Match</em>
+        <div className="flex items-center gap-2">
+          <Image src="/logo.png" alt="" width="32" height="32" style={{ objectFit: "contain" }} />
+          <span className="text-base font-bold tracking-tight">Zodiac<em className="not-italic text-[#c0392b]">Match</em></span>
         </div>
         <div className="flex gap-2 items-center">
           {["Signs", "Scores", "Elements", "FAQ"].map((label, idx) => (
