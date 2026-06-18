@@ -432,7 +432,9 @@ export default function Page() {
           <span className="text-xs text-[#8a847c]">✰ Zodiac<em className="not-italic text-[#c0392b]">Match</em> — Chinese Zodiac Compatibility Tool</span>
           <div className="flex gap-4">
             <a href="/blog" className="text-xs text-[#8a847c] no-underline hover:text-[#1a1816]">Blog</a>
-            <a href="#" className="text-xs text-[#8a847c] no-underline hover:text-[#1a1816]">Privacy</a>
+            <a href="/about" className="text-xs text-[#8a847c] no-underline hover:text-[#1a1816]">About</a>
+            <a href="/contact" className="text-xs text-[#8a847c] no-underline hover:text-[#1a1816]">Contact</a>
+            <a href="/privacy" className="text-xs text-[#8a847c] no-underline hover:text-[#1a1816]">Privacy</a>
           </div>
         </div>
       </footer>
