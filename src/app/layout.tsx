@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description: "Find your animal match. Pick two Chinese zodiac signs and discover compatibility scores, deep insights, and element dynamics. Free, instant, no sign-up.",
   metadataBase: new URL(SITE),
   alternates: { canonical: "/" },
+  icons: { icon: "/logo.png" },
   openGraph: {
     title: "ZodiacMatch — Chinese Zodiac Compatibility",
     description: "Find your animal match. Pick two Chinese zodiac signs and discover compatibility scores, deep insights, and element dynamics. Free, instant, no sign-up.",

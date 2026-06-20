@@ -437,6 +437,10 @@ export default function Page() {
             <a href="/privacy" className="text-xs text-[#8a847c] no-underline hover:text-[#1a1816]">Privacy</a>
           </div>
         </div>
+        <p className="text-[10px] text-[#bbb] leading-relaxed mt-6 max-w-[600px]">
+          Disclaimer: Zodiac compatibility is for entertainment and self-reflection only.
+          Not a substitute for professional relationship advice.
+        </p>
       </footer>
     </div>
     </>
