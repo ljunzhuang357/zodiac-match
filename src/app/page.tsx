@@ -23,15 +23,6 @@ export default function Page() {
     return () => o.disconnect();
   }, []);
 
-  // FAQ toggle (delegation)
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest(".q-btn");
-      if (target) target.parentElement?.classList.toggle("open");
-    };
-    document.addEventListener("click", handler);
-    return () => document.removeEventListener("click", handler);
-  }, []);
 
   const checkMatch = useCallback((a: number, b: number) => {
     if (a === -1 || b === -1) return;
@@ -90,24 +81,29 @@ export default function Page() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "WebApplication",
+            "@type": "WebSite",
             name: "ZodiacMatch — Chinese Zodiac Compatibility",
             url: "https://zodiacmatch.xyz",
             description:
               "Find your animal match. Pick two Chinese zodiac signs and discover compatibility scores, deep insights, and element dynamics. Free, instant, no sign-up.",
-            applicationCategory: "ReferenceApplication",
-            operatingSystem: "All",
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.9",
-              ratingCount: "876",
-              bestRating: "5",
-            },
-            offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-            author: {
-              "@type": "Organization",
-              name: "ZodiacMatch",
-              url: "https://zodiacmatch.xyz",
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "ZodiacMatch",
+            url: "https://zodiacmatch.xyz",
+            logo: "https://zodiacmatch.xyz/logo.png",
+            description:
+              "Find your animal match. Pick two Chinese zodiac signs and discover compatibility scores, deep insights, and element dynamics. Free, instant, no sign-up.",
+            sameAs: [],
+            contactPoint: {
+              "@type": "ContactPoint",
+              url: "https://zodiacmatch.xyz/contact",
             },
           }),
         }}
@@ -390,6 +386,72 @@ export default function Page() {
         </div>
       </section>
 
+      {/* FAQPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "How is the compatibility score calculated?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Scores are based on traditional Chinese zodiac compatibility principles — the four harmonious trios, the six conflicting pairs, and the five elements cycle. Each of the 66 unique pairings has been evaluated for natural harmony, communication style, and long-term potential.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "What if my sign has a low score with someone I care about?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Chinese zodiac compatibility is a guide, not a verdict. A low score means more natural friction — but many of the strongest relationships are built on navigating differences well.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How do the five elements affect compatibility?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Each birth year carries one of five elements. Elements that nourish each other in the generating cycle create smoother connections. When elements clash, the relationship may have more friction — but also more potential for growth.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "How do I find my Chinese zodiac sign?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Find your birth year under each animal — the cycle runs every 12 years. If born in January or February, check whether the Lunar New Year had passed in your birth year.",
+                },
+              },
+              {
+                "@type": "Question",
+                name: "Is this really free? No sign-up?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes. No sign-up, no credit card, no hidden limits. Every pairing, every score, every insight is fully accessible to everyone, always.",
+                },
+              },
+            ],
+          }),
+        }}
+      />
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://zodiacmatch.xyz/" },
+              { "@type": "ListItem", position: 2, name: "Chinese Zodiac Compatibility", item: "https://zodiacmatch.xyz/" },
+            ],
+          }),
+        }}
+      />
       {/* FAQ */}
       <section id="faqBox" className="mb-15 rv ok">
         <div className="text-[10px] font-medium uppercase tracking-wider text-[#8a847c] mb-4 text-center font-['JetBrains_Mono',monospace]">FAQ</div>
@@ -403,13 +465,13 @@ export default function Page() {
             { q: "How do I find my Chinese zodiac sign?", a: "Find your birth year under each animal — the cycle runs every 12 years. If born in January or February, check whether the Lunar New Year had passed in your birth year." },
             { q: "Is this really free? No sign-up?", a: "Yes. No sign-up, no credit card, no hidden limits. Every pairing, every score, every insight is fully accessible to everyone, always." },
           ].map((item) => (
-            <div key={item.q} className="border-b border-[#eeebe5] last:border-b-0">
-              <button className="q-btn flex justify-between items-center w-full py-[18px] text-sm font-medium bg-none border-none cursor-pointer font-sans text-[#1a1816] text-left hover:text-[#c0392b] transition-colors">
+            <details key={item.q} className="border-b border-[#eeebe5] last:border-b-0 group">
+              <summary className="flex justify-between items-center w-full py-[18px] text-sm font-medium cursor-pointer font-sans text-[#1a1816] hover:text-[#c0392b] transition-colors [&::-webkit-details-marker]:hidden">
                 {item.q}
-                <span className="arr text-xs text-[#ccc] shrink-0 ml-3 transition-transform duration-300">▾</span>
-              </button>
-              <div className="q-a px-0 pb-[18px] hidden text-sm text-[#5a5650] leading-relaxed">{item.a}</div>
-            </div>
+                <span className="text-xs text-[#ccc] shrink-0 ml-3 transition-transform duration-300 group-open:rotate-180">▾</span>
+              </summary>
+              <div className="px-0 pb-[18px] text-sm text-[#5a5650] leading-relaxed">{item.a}</div>
+            </details>
           ))}
         </div>
       </section>
