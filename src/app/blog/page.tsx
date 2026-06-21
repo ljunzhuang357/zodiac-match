@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Image from "next/image";
 import { blogPosts } from "@/data/blog";
 
 export const metadata: Metadata = {
@@ -24,18 +25,24 @@ export const metadata: Metadata = {
   },
 };
 
+const navLink = "text-xs text-[#8a847c] no-underline cursor-pointer px-2.5 py-1.5 rounded-md relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:right-1/2 after:h-[1.5px] after:bg-[#c0392b] after:rounded-sm after:transition-[left,right] after:duration-[0.35s] after:ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-[#1a1816] hover:after:left-[20%] hover:after:right-[20%]";
+
 export default function BlogPage() {
   return (
     <main className="min-h-screen" style={{ background: "var(--color-bg)" }}>
-      <div className="mx-auto max-w-2xl px-5 py-16 sm:py-24">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1 text-sm mb-10"
-          style={{ color: "var(--color-fg-tertiary)" }}
-        >
-          ← Back to compatibility tool
+      {/* Nav */}
+      <nav className="flex items-center justify-between py-5 border-b border-[#eeebe5] mb-12 max-w-[1040px] mx-auto px-6">
+        <Link href="/" className="flex items-center gap-2 no-underline">
+          <Image src="/logo.png" alt="" width="32" height="32" style={{ objectFit: "contain" }} />
+          <span className="text-base font-bold tracking-tight text-[#1a1816]">Zodiac<em className="not-italic text-[#c0392b]">Match</em></span>
         </Link>
+        <div className="flex gap-2 items-center">
+          <Link href="/" className={navLink}>Home</Link>
+          <Link href="/blog" className={navLink + " text-[#1a1816] after:left-[20%] after:right-[20%]"}>Blog</Link>
+        </div>
+      </nav>
 
+      <div className="mx-auto max-w-2xl px-5 pb-16 sm:pb-24">
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
           Chinese Zodiac Compatibility
         </h1>
